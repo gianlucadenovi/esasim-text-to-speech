@@ -7,8 +7,8 @@
     "name": "Text to Speech",
     "description": "Turn text into spoken voice with open Hugging Face models (Kokoro 82M, Bark, MMS-TTS) on an NVIDIA GPU or the CPU, then shape it with filters (telephone, radio, robot, cathedral, pitch, reverb, echo…) and compare original and filtered takes.",
     "type": "ai",
-    "cover": "c2",
-    "cover_file": "assets/cover.svg",
+    "cover": "upload",
+    "cover_file": "assets/cover.jpg",
     "readme": "README.md",
     "blueprints": [
         {

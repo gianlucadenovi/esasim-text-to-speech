@@ -1,0 +1,18 @@
+{
+    "esasim": {
+        "kind": "files",
+        "version": 1
+    },
+    "release": null,
+    "datasets": [],
+    "assets": [
+        {
+            "path": "covers/cfe1a32f-9f8b-40eb-ae4b-d554d7bbbbd6.png",
+            "size": 97462,
+            "sha256": "7ba38961ec57eea5f7683d29c5ffd0954639c3fe26085c52b8e89ba47ff4007b",
+            "zip": "assets/covers/cfe1a32f-9f8b-40eb-ae4b-d554d7bbbbd6.png",
+            "in": "repo"
+        }
+    ],
+    "saved": "2026-11-27T05:38:09+00:00"
+}

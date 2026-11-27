@@ -1,5 +1,5 @@
 <!-- esasim: cover -->
-![Text to Speech](assets/cover.svg)
+![Text to Speech](assets/cover.jpg)
 <!-- /esasim: cover -->
 
 # Text to Speech
@@ -50,4 +50,10 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 - [Voice filters](blocks/ws-voice-filters) · version 4
 - [Sound takes with downloads](blocks/ws-sound-takes-with-downloads) · version 2
 
-Keys pasted in blocks (secret settings) are not saved here. Datasets, results and the team stay in EsaSim.
+### Assets
+
+The files the project's views draw with (3D models, textures, sounds), in [assets/](assets/):
+
+- [covers/cfe1a32f-9f8b-40eb-ae4b-d554d7bbbbd6.png](assets/covers/cfe1a32f-9f8b-40eb-ae4b-d554d7bbbbd6.png) · 95 KB
+
+Keys pasted in blocks (secret settings) are not saved here, nor are the team and the results of runs.
