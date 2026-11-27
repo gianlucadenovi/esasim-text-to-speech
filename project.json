@@ -9,12 +9,12 @@
     "type": "ai",
     "cover": "c2",
     "cover_file": "assets/cover.svg",
-    "readme": null,
+    "readme": "README.md",
     "blueprints": [
         {
             "name": "1 · Speak and filter",
             "file": "blueprints/1-speak-and-filter.json",
-            "published_version": 2,
+            "published_version": 3,
             "nodes": 8
         }
     ],

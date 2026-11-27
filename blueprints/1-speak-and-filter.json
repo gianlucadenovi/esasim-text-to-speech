@@ -5,15 +5,15 @@
     },
     "name": "1 · Speak and filter",
     "description": "Text → speech takes (one per voice and seed) → voice filters → listen to original and filtered side by side, with waveforms and details.",
-    "published_version": 2,
-    "updated": "2026-11-27 05:16:03",
+    "published_version": 3,
+    "updated": "2026-11-27 05:18:40",
     "graph": {
         "nodes": [
             {
                 "id": "studio",
                 "type": "ws-text-to-speech-studio",
-                "x": 600,
-                "y": 560,
+                "x": 1288,
+                "y": 60,
                 "params": {
                     "tts_node": "tts",
                     "fx_node": "fx"
@@ -23,8 +23,8 @@
             {
                 "id": "tts",
                 "type": "ws-text-to-speech",
-                "x": 0,
-                "y": 120,
+                "x": 20,
+                "y": -20,
                 "params": {
                     "text": "Physical AI.",
                     "model": "Bark small",
@@ -41,8 +41,8 @@
             {
                 "id": "fx",
                 "type": "ws-voice-filters",
-                "x": 300,
-                "y": 120,
+                "x": 570,
+                "y": -600,
                 "params": {
                     "preset": "Studio voice",
                     "compare": "Robot, Old radio (1940s), Ghost, Stadium PA"
@@ -52,8 +52,8 @@
             {
                 "id": "original",
                 "type": "ws-sound-takes-with-downloads",
-                "x": 600,
-                "y": -80,
+                "x": 570,
+                "y": -295,
                 "params": {
                     "autoplay": false,
                     "volume": 80
@@ -63,8 +63,8 @@
             {
                 "id": "filtered",
                 "type": "ws-sound-takes-with-downloads",
-                "x": 600,
-                "y": 120,
+                "x": 1288,
+                "y": -384,
                 "params": {
                     "autoplay": false,
                     "volume": 80
@@ -74,8 +74,8 @@
             {
                 "id": "waveforms",
                 "type": "waveform-view",
-                "x": 600,
-                "y": 320,
+                "x": 1288,
+                "y": -600,
                 "params": {
                     "lanes": "one lane each"
                 },
@@ -84,8 +84,8 @@
             {
                 "id": "takes",
                 "type": "table-view",
-                "x": 900,
-                "y": -80,
+                "x": 570,
+                "y": -40,
                 "params": {
                     "rows": 100
                 },
@@ -94,8 +94,8 @@
             {
                 "id": "chain",
                 "type": "table-view",
-                "x": 900,
-                "y": 120,
+                "x": 1288,
+                "y": -140,
                 "params": {
                     "rows": 100
                 },
