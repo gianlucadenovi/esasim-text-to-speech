@@ -1,0 +1,59 @@
+{
+    "id": "ws-sound-takes-with-downloads",
+    "version": "1",
+    "name": "Sound takes with downloads",
+    "category": "Visualizers",
+    "icon": "volume",
+    "side": "frontend",
+    "customizable": true,
+    "summary": "Plays every generated take, each with its own Download WAV and Download MP3 buttons.",
+    "help": "Connect the WAV files to Sounds and, optionally, MP3 copies with the same names to MP3. Each take gets a player, a Download WAV button and a Download MP3 button (greyed out when there is no MP3 copy).",
+    "inputs": [
+        {
+            "id": "sounds",
+            "label": "Sounds (WAV)",
+            "type": "files",
+            "many": true,
+            "formats": [
+                "wav",
+                "ogg",
+                "flac"
+            ]
+        },
+        {
+            "id": "mp3",
+            "label": "MP3 copies",
+            "type": "files",
+            "many": true,
+            "optional": true,
+            "formats": [
+                "mp3"
+            ]
+        }
+    ],
+    "outputs": [],
+    "params": [
+        {
+            "key": "autoplay",
+            "label": "Play new files by themselves",
+            "type": "bool",
+            "default": false
+        },
+        {
+            "key": "volume",
+            "label": "Volume (%)",
+            "type": "number",
+            "default": 80,
+            "min": 0,
+            "max": 100
+        }
+    ],
+    "view": {
+        "w": 6,
+        "h": 7,
+        "resize": "both"
+    },
+    "esasim": {
+        "version": 2
+    }
+}

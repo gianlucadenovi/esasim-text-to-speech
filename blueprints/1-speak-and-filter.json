@@ -6,10 +6,216 @@
     "name": "1 · Speak and filter",
     "description": "Text → speech takes (one per voice and seed) → voice filters → listen to original and filtered side by side, with waveforms and details.",
     "published_version": 0,
-    "updated": "2026-11-27 05:10:09",
+    "updated": "2026-11-27 05:10:19",
     "graph": {
-        "nodes": [],
-        "edges": [],
-        "notes": []
+        "nodes": [
+            {
+                "id": "studio",
+                "type": "ws-text-to-speech-studio",
+                "x": 600,
+                "y": 560,
+                "params": {
+                    "tts_node": "tts",
+                    "fx_node": "fx"
+                },
+                "title": "START HERE · Text, voice, filters & Speak"
+            },
+            {
+                "id": "tts",
+                "type": "ws-text-to-speech",
+                "x": 0,
+                "y": 120,
+                "params": {
+                    "text": "Physical AI.",
+                    "model": "Kokoro 82M",
+                    "voices": "am_michael, am_adam, bm_george",
+                    "takes": 1,
+                    "seed": 1,
+                    "speed": 1,
+                    "device": "Auto (GPU if present)",
+                    "use_cache": true,
+                    "token": ""
+                },
+                "title": "1 · Text to speech"
+            },
+            {
+                "id": "fx",
+                "type": "ws-voice-filters",
+                "x": 300,
+                "y": 120,
+                "params": {
+                    "preset": "Studio voice"
+                },
+                "title": "2 · Voice filters"
+            },
+            {
+                "id": "original",
+                "type": "ws-sound-takes-with-downloads",
+                "x": 600,
+                "y": -80,
+                "params": {
+                    "autoplay": false,
+                    "volume": 80
+                },
+                "title": "3a · Original takes"
+            },
+            {
+                "id": "filtered",
+                "type": "ws-sound-takes-with-downloads",
+                "x": 600,
+                "y": 120,
+                "params": {
+                    "autoplay": false,
+                    "volume": 80
+                },
+                "title": "3b · Filtered takes"
+            },
+            {
+                "id": "waveforms",
+                "type": "waveform-view",
+                "x": 600,
+                "y": 320,
+                "params": {
+                    "lanes": "one lane each"
+                },
+                "title": "4 · Waveforms (filtered)"
+            },
+            {
+                "id": "takes",
+                "type": "table-view",
+                "x": 900,
+                "y": -80,
+                "params": {
+                    "rows": 100
+                },
+                "title": "5a · Takes: voice, seed, duration, device"
+            },
+            {
+                "id": "chain",
+                "type": "table-view",
+                "x": 900,
+                "y": 120,
+                "params": {
+                    "rows": 100
+                },
+                "title": "5b · Filter chain of each file"
+            }
+        ],
+        "edges": [
+            {
+                "id": "tts.speech>fx.audio",
+                "from": {
+                    "node": "tts",
+                    "port": "speech"
+                },
+                "to": {
+                    "node": "fx",
+                    "port": "audio"
+                }
+            },
+            {
+                "id": "tts.speech>original.sounds",
+                "from": {
+                    "node": "tts",
+                    "port": "speech"
+                },
+                "to": {
+                    "node": "original",
+                    "port": "sounds"
+                }
+            },
+            {
+                "id": "tts.mp3>original.mp3",
+                "from": {
+                    "node": "tts",
+                    "port": "mp3"
+                },
+                "to": {
+                    "node": "original",
+                    "port": "mp3"
+                }
+            },
+            {
+                "id": "fx.filtered>filtered.sounds",
+                "from": {
+                    "node": "fx",
+                    "port": "filtered"
+                },
+                "to": {
+                    "node": "filtered",
+                    "port": "sounds"
+                }
+            },
+            {
+                "id": "fx.mp3>filtered.mp3",
+                "from": {
+                    "node": "fx",
+                    "port": "mp3"
+                },
+                "to": {
+                    "node": "filtered",
+                    "port": "mp3"
+                }
+            },
+            {
+                "id": "fx.filtered>waveforms.data",
+                "from": {
+                    "node": "fx",
+                    "port": "filtered"
+                },
+                "to": {
+                    "node": "waveforms",
+                    "port": "data"
+                }
+            },
+            {
+                "id": "tts.table>takes.data",
+                "from": {
+                    "node": "tts",
+                    "port": "table"
+                },
+                "to": {
+                    "node": "takes",
+                    "port": "data"
+                }
+            },
+            {
+                "id": "fx.table>chain.data",
+                "from": {
+                    "node": "fx",
+                    "port": "table"
+                },
+                "to": {
+                    "node": "chain",
+                    "port": "data"
+                }
+            },
+            {
+                "id": "tts.telemetry>studio.status",
+                "from": {
+                    "node": "tts",
+                    "port": "telemetry"
+                },
+                "to": {
+                    "node": "studio",
+                    "port": "status"
+                }
+            },
+            {
+                "id": "fx.telemetry>studio.status",
+                "from": {
+                    "node": "fx",
+                    "port": "telemetry"
+                },
+                "to": {
+                    "node": "studio",
+                    "port": "status"
+                }
+            }
+        ],
+        "notes": [],
+        "dash": {
+            "items": []
+        }
     }
 }

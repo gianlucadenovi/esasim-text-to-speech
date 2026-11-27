@@ -1,0 +1,46 @@
+{
+    "id": "ws-text-to-speech-studio",
+    "version": "1",
+    "name": "Text to Speech Studio",
+    "category": "Visualizers",
+    "icon": "speech",
+    "side": "frontend",
+    "customizable": true,
+    "summary": "Type a text, pick model, voices, GPU or CPU and the voice filters, and press Speak: starts a run with those settings and shows its live progress.",
+    "help": "Wire the Live telemetry of the Text to speech block (node id tts) and of the Voice filters block (node id fx) into Live progress. The button starts a run with the settings typed here. 'Re-apply filters' reruns with the same speech settings: the takes come from the worker's cache, so only the filters are computed again.",
+    "inputs": [
+        {
+            "id": "status",
+            "label": "Live progress",
+            "type": "telemetry",
+            "many": true,
+            "optional": true
+        }
+    ],
+    "outputs": [],
+    "params": [
+        {
+            "key": "tts_node",
+            "label": "Text to speech node id",
+            "type": "text",
+            "default": "tts"
+        },
+        {
+            "key": "fx_node",
+            "label": "Voice filters node id",
+            "type": "text",
+            "default": "fx"
+        }
+    ],
+    "view": {
+        "w": 6,
+        "h": 7,
+        "resize": "both"
+    },
+    "permissions": [
+        "run"
+    ],
+    "esasim": {
+        "version": 1
+    }
+}

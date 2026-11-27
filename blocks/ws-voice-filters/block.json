@@ -1,0 +1,212 @@
+{
+    "id": "ws-voice-filters",
+    "version": "1",
+    "name": "Voice filters",
+    "category": "Processing",
+    "icon": "sliders",
+    "side": "backend",
+    "customizable": true,
+    "summary": "Effects on audio files: presets (telephone, radio, robot, cathedral, megaphone…) plus EQ, pitch, speed, reverb, echo, distortion, compression and fades.",
+    "help": "Wire WAV files in. Pick a preset (or None) and add your own settings on top: they are applied after the preset, in this order: trim silence → speed → pitch → high-pass / low-pass → robot (ring modulation) → distortion → bit crush → chorus → echo → reverb → compressor → gain → normalize → fades. 'Compare presets' renders each take through several presets at once (comma-separated names). Runs on any CPU (Spotify's open-source pedalboard).",
+    "inputs": [
+        {
+            "id": "audio",
+            "label": "Audio (WAV)",
+            "type": "files",
+            "many": true,
+            "formats": [
+                "wav",
+                "flac",
+                "ogg"
+            ]
+        }
+    ],
+    "outputs": [
+        {
+            "id": "filtered",
+            "label": "Filtered (WAV)",
+            "type": "files",
+            "formats": [
+                "wav"
+            ]
+        },
+        {
+            "id": "mp3",
+            "label": "MP3 copies",
+            "type": "files",
+            "formats": [
+                "mp3"
+            ]
+        },
+        {
+            "id": "table",
+            "label": "Filter chain",
+            "type": "table",
+            "formats": [
+                "csv"
+            ]
+        }
+    ],
+    "params": [
+        {
+            "key": "preset",
+            "label": "Preset",
+            "type": "select",
+            "default": "Studio voice",
+            "options": [
+                "None",
+                "Studio voice",
+                "Deep voice",
+                "Telephone",
+                "AM radio",
+                "Walkie-talkie",
+                "Megaphone",
+                "Robot",
+                "Small room",
+                "Cathedral",
+                "Underwater",
+                "Chipmunk",
+                "Lo-fi"
+            ]
+        },
+        {
+            "key": "compare",
+            "label": "Compare presets (comma-separated, optional)",
+            "type": "text",
+            "default": "",
+            "help": "e.g. Telephone, Robot, Cathedral: each take is rendered with each of them (your settings below are added to each)."
+        },
+        {
+            "key": "gain_db",
+            "label": "Gain (dB)",
+            "type": "number",
+            "default": 0,
+            "min": -30,
+            "max": 30
+        },
+        {
+            "key": "highpass_hz",
+            "label": "High-pass (Hz, 0 = off)",
+            "type": "number",
+            "default": 0,
+            "min": 0,
+            "max": 8000
+        },
+        {
+            "key": "lowpass_hz",
+            "label": "Low-pass (Hz, 0 = off)",
+            "type": "number",
+            "default": 0,
+            "min": 0,
+            "max": 22000
+        },
+        {
+            "key": "pitch",
+            "label": "Pitch (semitones)",
+            "type": "number",
+            "default": 0,
+            "min": -12,
+            "max": 12
+        },
+        {
+            "key": "speed",
+            "label": "Speed (keeps the pitch)",
+            "type": "number",
+            "default": 1,
+            "min": 0.5,
+            "max": 2
+        },
+        {
+            "key": "reverb",
+            "label": "Reverb (0-1)",
+            "type": "number",
+            "default": 0,
+            "min": 0,
+            "max": 1
+        },
+        {
+            "key": "echo_ms",
+            "label": "Echo delay (ms, 0 = off)",
+            "type": "number",
+            "default": 0,
+            "min": 0,
+            "max": 2000
+        },
+        {
+            "key": "echo_feedback",
+            "label": "Echo feedback (0-0.9)",
+            "type": "number",
+            "default": 0.3,
+            "min": 0,
+            "max": 0.9
+        },
+        {
+            "key": "distortion_db",
+            "label": "Distortion drive (dB, 0 = off)",
+            "type": "number",
+            "default": 0,
+            "min": 0,
+            "max": 40
+        },
+        {
+            "key": "robot_hz",
+            "label": "Robot ring modulation (Hz, 0 = off)",
+            "type": "number",
+            "default": 0,
+            "min": 0,
+            "max": 500
+        },
+        {
+            "key": "chorus",
+            "label": "Chorus",
+            "type": "bool",
+            "default": false
+        },
+        {
+            "key": "compress",
+            "label": "Compressor",
+            "type": "bool",
+            "default": false
+        },
+        {
+            "key": "trim",
+            "label": "Trim leading/trailing silence",
+            "type": "bool",
+            "default": true
+        },
+        {
+            "key": "normalize",
+            "label": "Normalize to -1 dBFS",
+            "type": "bool",
+            "default": true
+        },
+        {
+            "key": "fade_in_ms",
+            "label": "Fade in (ms)",
+            "type": "number",
+            "default": 10,
+            "min": 0,
+            "max": 5000
+        },
+        {
+            "key": "fade_out_ms",
+            "label": "Fade out (ms)",
+            "type": "number",
+            "default": 50,
+            "min": 0,
+            "max": 5000
+        }
+    ],
+    "hardware": [
+        "cpu"
+    ],
+    "packages": [
+        "pedalboard>=0.9",
+        "soundfile>=0.12",
+        "numpy",
+        "scipy"
+    ],
+    "esasim": {
+        "version": 2
+    }
+}

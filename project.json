@@ -15,8 +15,29 @@
             "name": "1 · Speak and filter",
             "file": "blueprints/1-speak-and-filter.json",
             "published_version": 0,
-            "nodes": 0
+            "nodes": 8
         }
     ],
-    "blocks": []
+    "blocks": [
+        {
+            "id": "ws-text-to-speech-studio",
+            "version": 1,
+            "name": "Text to Speech Studio"
+        },
+        {
+            "id": "ws-text-to-speech",
+            "version": 1,
+            "name": "Text to speech"
+        },
+        {
+            "id": "ws-voice-filters",
+            "version": 2,
+            "name": "Voice filters"
+        },
+        {
+            "id": "ws-sound-takes-with-downloads",
+            "version": 2,
+            "name": "Sound takes with downloads"
+        }
+    ]
 }

@@ -1,0 +1,159 @@
+{
+    "id": "ws-text-to-speech",
+    "version": "1",
+    "name": "Text to speech",
+    "category": "AI",
+    "icon": "speech",
+    "side": "backend",
+    "customizable": true,
+    "summary": "Speak a text with open Hugging Face TTS models (Kokoro, Bark, MMS) on an NVIDIA GPU or the CPU: one WAV + MP3 per voice and seed.",
+    "help": "Write the text to speak, pick a model and one or more voices (comma-separated). Each voice × take makes a WAV (with an MP3 copy). Kokoro 82M: best quality, fast on a CPU; voices like am_michael, am_adam, bm_george (male) or af_heart, af_bella, bf_emma (female), if_sara / im_nicola (Italian). Bark: expressive, can laugh [laughs] or hesitate (…), better on a GPU; voices v2/en_speaker_0 … v2/en_speaker_9, v2/it_speaker_0 …. MMS-TTS: light, 1,100+ languages; the voice is the ISO 639-3 language code (eng, ita, fra, deu, spa). Takes already made with the same settings are reused from the machine's cache, so changing only the filters is quick.",
+    "inputs": [],
+    "outputs": [
+        {
+            "id": "speech",
+            "label": "Speech (WAV)",
+            "type": "files",
+            "formats": [
+                "wav"
+            ]
+        },
+        {
+            "id": "mp3",
+            "label": "MP3 copies",
+            "type": "files",
+            "formats": [
+                "mp3"
+            ]
+        },
+        {
+            "id": "table",
+            "label": "Takes",
+            "type": "table",
+            "formats": [
+                "csv"
+            ]
+        },
+        {
+            "id": "metadata",
+            "label": "Manifest",
+            "type": "files",
+            "formats": [
+                "json"
+            ]
+        }
+    ],
+    "params": [
+        {
+            "key": "text",
+            "label": "Text to speak",
+            "type": "textarea",
+            "default": "Physical AI."
+        },
+        {
+            "key": "model",
+            "label": "Model",
+            "type": "select",
+            "default": "Kokoro 82M",
+            "options": [
+                "Kokoro 82M",
+                "Bark small",
+                "Bark",
+                "MMS-TTS"
+            ]
+        },
+        {
+            "key": "voices",
+            "label": "Voices (comma-separated)",
+            "type": "text",
+            "default": "am_michael, am_adam, bm_george",
+            "help": "Kokoro: am_michael, am_adam, am_eric, bm_george, bm_lewis, af_heart, af_bella, bf_emma, if_sara, im_nicola … · Bark: v2/en_speaker_6, v2/en_speaker_9, v2/it_speaker_4 … · MMS-TTS: eng, ita, fra, deu, spa …. Empty = the model's default."
+        },
+        {
+            "key": "takes",
+            "label": "Takes per voice",
+            "type": "number",
+            "default": 1,
+            "min": 1,
+            "max": 20,
+            "help": "Bark and MMS vary with the seed; Kokoro gives the same take for the same voice and speed."
+        },
+        {
+            "key": "seed",
+            "label": "First seed (0 = random)",
+            "type": "number",
+            "default": 1,
+            "min": 0,
+            "max": 2147483647
+        },
+        {
+            "key": "speed",
+            "label": "Speaking speed",
+            "type": "number",
+            "default": 1,
+            "min": 0.5,
+            "max": 2,
+            "help": "Kokoro and MMS-TTS (Bark ignores it; use the filter block's speed)"
+        },
+        {
+            "key": "device",
+            "label": "Run on",
+            "type": "select",
+            "default": "Auto (GPU if present)",
+            "options": [
+                "Auto (GPU if present)",
+                "NVIDIA GPU",
+                "CPU"
+            ]
+        },
+        {
+            "key": "use_cache",
+            "label": "Reuse takes already made with the same settings",
+            "type": "bool",
+            "default": true
+        },
+        {
+            "key": "token",
+            "label": "Hugging Face token",
+            "type": "secret",
+            "default": "",
+            "help": "Not needed for these models; used if set (rate limits)."
+        }
+    ],
+    "hardware": [
+        "cpu",
+        "nvidia"
+    ],
+    "hardware_by": {
+        "param": "device",
+        "map": {
+            "Auto (GPU if present)": [
+                "cpu"
+            ],
+            "CPU": [
+                "cpu"
+            ],
+            "NVIDIA GPU": [
+                "nvidia"
+            ]
+        }
+    },
+    "packages": [
+        "torch[cuda]",
+        "transformers==4.47.1",
+        "huggingface_hub>=0.26,<1.0",
+        "tokenizers>=0.21,<0.22",
+        "kokoro>=0.9.4",
+        "misaki[en]>=0.9.4",
+        "soundfile>=0.12",
+        "numpy",
+        "scipy",
+        "accelerate",
+        "safetensors",
+        "sentencepiece",
+        "psutil"
+    ],
+    "esasim": {
+        "version": 1
+    }
+}
