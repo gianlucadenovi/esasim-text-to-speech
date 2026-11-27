@@ -207,6 +207,6 @@
         "scipy"
     ],
     "esasim": {
-        "version": 2
+        "version": 3
     }
 }
