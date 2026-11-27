@@ -41,7 +41,7 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 
 ### Blueprints in this repository
 
-- [1 · Speak and filter](blueprints/1-speak-and-filter.json) · 8 blocks · version 3
+- [1 · Speak and filter](blueprints/1-speak-and-filter.json) · 8 blocks · version 4
 
 ### Workspace blocks it uses
 
