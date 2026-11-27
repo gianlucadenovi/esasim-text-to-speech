@@ -5,8 +5,8 @@
     },
     "name": "1 · Speak and filter",
     "description": "Text → speech takes (one per voice and seed) → voice filters → listen to original and filtered side by side, with waveforms and details.",
-    "published_version": 1,
-    "updated": "2026-11-27 05:10:19",
+    "published_version": 2,
+    "updated": "2026-11-27 05:16:03",
     "graph": {
         "nodes": [
             {
@@ -27,12 +27,12 @@
                 "y": 120,
                 "params": {
                     "text": "Physical AI.",
-                    "model": "Kokoro 82M",
-                    "voices": "am_michael, am_adam, bm_george",
-                    "takes": 1,
+                    "model": "Bark small",
+                    "voices": "v2/en_speaker_6",
+                    "takes": 2,
                     "seed": 1,
                     "speed": 1,
-                    "device": "Auto (GPU if present)",
+                    "device": "NVIDIA GPU",
                     "use_cache": true,
                     "token": ""
                 },
@@ -44,7 +44,8 @@
                 "x": 300,
                 "y": 120,
                 "params": {
-                    "preset": "Studio voice"
+                    "preset": "Studio voice",
+                    "compare": "Robot, Old radio (1940s), Ghost, Stadium PA"
                 },
                 "title": "2 · Voice filters"
             },
