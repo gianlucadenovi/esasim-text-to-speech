@@ -1,14 +1,14 @@
 # Text to Speech Studio
 
-Type a text, pick model, voices, GPU or CPU and the voice filters, and press Speak: starts a run with those settings and shows its live progress.
+Type a text, pick model, voices, GPU or CPU and the voice effects, and press Speak: starts a run with those settings and shows its live progress.
 
-Wire the Live telemetry of the Text to speech block (node id tts) and of the Voice filters block (node id fx) into Live progress. The button starts a run with the settings typed here. 'Re-apply filters' reruns with the same speech settings: the takes come from the worker's cache, so only the filters are computed again.
+Wire the Live telemetry of the Text to speech block (node id tts) and of the Voice filters block (node id fx) into Live progress. Voices and comparison presets are picked from dropdowns and shown as removable chips; effects are a category and a preset dropdown, with sliders for your own adjustments. 'Re-apply effects' reruns with the same speech: the takes come from the worker's cache.
 
 An [EsaSim](https://esacode.com/) blueprint block: a view that draws in the browser, in JavaScript (`frontend.js`, `function render(ctx)`).
 
 | | |
 |---|---|
-| Block | `ws-text-to-speech-studio` · version 2 |
+| Block | `ws-text-to-speech-studio` · version 3 |
 | Workspace | Gianluca De Novi's workspace |
 | Author | Gianluca De Novi |
 

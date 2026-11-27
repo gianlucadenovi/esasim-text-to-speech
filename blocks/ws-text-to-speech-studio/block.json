@@ -6,8 +6,8 @@
     "icon": "speech",
     "side": "frontend",
     "customizable": true,
-    "summary": "Type a text, pick model, voices, GPU or CPU and the voice filters, and press Speak: starts a run with those settings and shows its live progress.",
-    "help": "Wire the Live telemetry of the Text to speech block (node id tts) and of the Voice filters block (node id fx) into Live progress. The button starts a run with the settings typed here. 'Re-apply filters' reruns with the same speech settings: the takes come from the worker's cache, so only the filters are computed again.",
+    "summary": "Type a text, pick model, voices, GPU or CPU and the voice effects, and press Speak: starts a run with those settings and shows its live progress.",
+    "help": "Wire the Live telemetry of the Text to speech block (node id tts) and of the Voice filters block (node id fx) into Live progress. Voices and comparison presets are picked from dropdowns and shown as removable chips; effects are a category and a preset dropdown, with sliders for your own adjustments. 'Re-apply effects' reruns with the same speech: the takes come from the worker's cache.",
     "inputs": [
         {
             "id": "status",
@@ -41,6 +41,6 @@
         "run"
     ],
     "esasim": {
-        "version": 2
+        "version": 3
     }
 }

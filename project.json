@@ -21,7 +21,7 @@
     "blocks": [
         {
             "id": "ws-text-to-speech-studio",
-            "version": 2,
+            "version": 3,
             "name": "Text to Speech Studio"
         },
         {

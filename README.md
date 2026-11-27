@@ -45,7 +45,7 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 
 ### Workspace blocks it uses
 
-- [Text to Speech Studio](blocks/ws-text-to-speech-studio) · version 2
+- [Text to Speech Studio](blocks/ws-text-to-speech-studio) · version 3
 - [Text to speech](blocks/ws-text-to-speech) · version 2
 - [Voice filters](blocks/ws-voice-filters) · version 4
 - [Sound takes with downloads](blocks/ws-sound-takes-with-downloads) · version 2
