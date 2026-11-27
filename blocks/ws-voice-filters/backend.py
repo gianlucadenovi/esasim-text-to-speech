@@ -1,6 +1,6 @@
 # ── EsaSim block ──────────────────────────────────────────────────────
-# Voice filters (ws-voice-filters) · version 3 · worker block, Python: def run(ctx)
-# Effects on audio files: presets (telephone, radio, robot, cathedral, megaphone…) plus EQ, pitch, speed, reverb, echo, distortion, compression and fades.
+# Voice filters (ws-voice-filters) · version 4 · worker block, Python: def run(ctx)
+# Voice effects on audio files: 43 presets in 5 groups (broadcast, devices, spaces, characters & sci-fi, creative) plus EQ, pitch, speed, reverb, echo, distortion, phaser, tremolo, hiss, crackle and fad
 # Workspace: Gianluca De Novi's workspace · Author: Gianluca De Novi
 # Saved: 2026-11-27
 #
@@ -12,7 +12,7 @@
 #   table       Table (csv)               Filter chain
 #   telemetry   Live telemetry            ctx.telemetry("channel", data) while it runs
 # Settings ctx.params["key"]
-#   preset      select    Preset = "Studio voice" of None | Studio voice | Deep voice | Telephone | AM radio | Walkie-talkie …
+#   preset      select    Preset = "Studio voice" of None | Studio voice | Podcast | Broadcast announcer | Warm narrator | Wh…
 #   compare     text      Compare presets (comma-separated, optional) = ""
 #   gain_db     number    Gain (dB) = 0
 #   highpass_hz number    High-pass (Hz, 0 = off) = 0
@@ -24,7 +24,11 @@
 #   echo_feedback number    Echo feedback (0-0.9) = 0.3
 #   distortion_db number    Distortion drive (dB, 0 = off) = 0
 #   robot_hz    number    Robot ring modulation (Hz, 0 = off) = 0
+#   tremolo_hz  number    Tremolo (Hz, 0 = off) = 0
+#   noise_db    number    Tape hiss (dB below the voice, 0 = off) = 0
 #   chorus      bool      Chorus = false
+#   phaser      bool      Phaser = false
+#   crackle     bool      Vinyl crackle = false
 #   compress    bool      Compressor = false
 #   trim        bool      Trim leading/trailing silence = true
 #   normalize   bool      Normalize to -1 dBFS = true

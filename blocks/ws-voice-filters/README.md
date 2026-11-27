@@ -1,14 +1,14 @@
 # Voice filters
 
-Effects on audio files: presets (telephone, radio, robot, cathedral, megaphone…) plus EQ, pitch, speed, reverb, echo, distortion, compression and fades.
+Voice effects on audio files: 43 presets in 5 groups (broadcast, devices, spaces, characters & sci-fi, creative) plus EQ, pitch, speed, reverb, echo, distortion, phaser, tremolo, hiss, crackle and fad
 
-Wire WAV files in. Pick a preset (or None) and add your own settings on top: they are applied after the preset, in this order: trim silence → speed → pitch → high-pass / low-pass → robot (ring modulation) → distortion → bit crush → chorus → echo → reverb → compressor → gain → normalize → fades. 'Compare presets' renders each take through several presets at once (comma-separated names). Runs on any CPU (Spotify's open-source pedalboard).
+Wire WAV files in. Pick a preset and add your own settings on top (pitch and gain add to the preset; the others replace its value). Order: trim → speed → pitch → high/low-pass → ring mod → tremolo → distortion → bit crush → chorus → phaser → echo → reverb → compressor → gain → hiss/crackle → normalize → fades. 'Compare presets' renders each take through several presets at once. Presets — Clean & broadcast: None, Studio voice, Podcast, Broadcast announcer, Warm narrator, Whisper-soft · Devices: Telephone, Mobile call, AM radio, Old radio (1940s), Vinyl record, Walkie-talkie, Intercom, Drive-thru speaker, Megaphone, Stadium PA, Space helmet · Spaces: Small room, Bathroom, Concert hall, Cathedral, Cave, Canyon echo, Distant voice, Next room, Underwater · Characters & sci-fi: Deep voice, Giant, Demon, Robot, Cyborg, Alien, Ghost, Chipmunk, Helium, Sci-fi computer · Creative & lo-fi: Lo-fi, 8-bit arcade, Dreamy, Slow motion, Fast forward, Tremolo, Phaser sweep.
 
 An [EsaSim](https://esacode.com/) blueprint block: it runs on a worker, in Python (`backend.py`, `def run(ctx)`).
 
 | | |
 |---|---|
-| Block | `ws-voice-filters` · version 3 |
+| Block | `ws-voice-filters` · version 4 |
 | Workspace | Gianluca De Novi's workspace |
 | Author | Gianluca De Novi |
 | Runs on | Any worker |
@@ -43,7 +43,11 @@ An [EsaSim](https://esacode.com/) blueprint block: it runs on a worker, in Pytho
 | `echo_feedback` Echo feedback (0-0.9) | number | `0.3` |  |
 | `distortion_db` Distortion drive (dB, 0 = off) | number | `0` |  |
 | `robot_hz` Robot ring modulation (Hz, 0 = off) | number | `0` |  |
+| `tremolo_hz` Tremolo (Hz, 0 = off) | number | `0` |  |
+| `noise_db` Tape hiss (dB below the voice, 0 = off) | number | `0` | e.g. -40 |
 | `chorus` Chorus | bool | `false` |  |
+| `phaser` Phaser | bool | `false` |  |
+| `crackle` Vinyl crackle | bool | `false` |  |
 | `compress` Compressor | bool | `false` |  |
 | `trim` Trim leading/trailing silence | bool | `true` |  |
 | `normalize` Normalize to -1 dBFS | bool | `true` |  |
