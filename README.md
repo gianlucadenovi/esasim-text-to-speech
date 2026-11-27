@@ -18,7 +18,7 @@
 
 ## Flows
 
-None yet.
+- **1 · Speak and filter**: Text → speech takes (one per voice and seed) → voice filters → listen to original and filtered side by side, with waveforms and details.
 
 ## What you need
 
@@ -38,6 +38,6 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 
 ### Blueprints in this repository
 
-None yet.
+- [1 · Speak and filter](blueprints/1-speak-and-filter.json) · 0 blocks
 
 Keys pasted in blocks (secret settings) are not saved here. Datasets, results and the team stay in EsaSim.

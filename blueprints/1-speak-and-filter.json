@@ -1,0 +1,15 @@
+{
+    "esasim": {
+        "kind": "blueprint",
+        "flow_id": 116
+    },
+    "name": "1 · Speak and filter",
+    "description": "Text → speech takes (one per voice and seed) → voice filters → listen to original and filtered side by side, with waveforms and details.",
+    "published_version": 0,
+    "updated": "2026-11-27 05:10:09",
+    "graph": {
+        "nodes": [],
+        "edges": [],
+        "notes": []
+    }
+}
