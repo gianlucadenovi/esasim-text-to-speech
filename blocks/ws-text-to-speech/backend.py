@@ -1,5 +1,5 @@
 # ── EsaSim block ──────────────────────────────────────────────────────
-# Text to speech (ws-text-to-speech) · version 1 · worker block, Python: def run(ctx)
+# Text to speech (ws-text-to-speech) · version 2 · worker block, Python: def run(ctx)
 # Speak a text with open Hugging Face TTS models (Kokoro, Bark, MMS) on an NVIDIA GPU or the CPU: one WAV + MP3 per voice and seed.
 # Workspace: Gianluca De Novi's workspace · Author: Gianluca De Novi
 # Saved: 2026-11-27
@@ -161,6 +161,13 @@ def run(ctx):
         if torch.cuda.is_available() and not want.startswith("CPU"):
             device, where = "cuda", torch.cuda.get_device_name(0)
         else:
+            why = ""
+            try:
+                torch.cuda.init()
+            except Exception as exc:
+                why = str(exc).splitlines()[0][:200]
+            ctx.log("GPU check: torch CUDA build %s, devices seen %d%s" % (torch.version.cuda, torch.cuda.device_count(),
+                    (", " + why) if why else ""))
             if want.startswith("NVIDIA"):
                 raise RuntimeError("No usable NVIDIA GPU on this worker (torch %s). Choose CPU or Auto." % torch.__version__)
             threads = max(1, min(8, (os.cpu_count() or 4) // 2))
