@@ -14,14 +14,14 @@
         {
             "name": "1 · Speak and filter",
             "file": "blueprints/1-speak-and-filter.json",
-            "published_version": 0,
+            "published_version": 1,
             "nodes": 8
         }
     ],
     "blocks": [
         {
             "id": "ws-text-to-speech-studio",
-            "version": 1,
+            "version": 2,
             "name": "Text to Speech Studio"
         },
         {
